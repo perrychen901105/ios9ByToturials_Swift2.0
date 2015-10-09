@@ -45,9 +45,11 @@ enum StringValidationError: ErrorType, CustomStringConvertible {
 //: Do not modify what is above this line
 
 //: Define the `StringValidationRule` protocol below
-
-
-
+protocol StringValidationRule {
+    // denoting the validity of a given string and also throws an error
+    func validate(string: String) throws -> Bool
+    var errorType: StringValidationError { get }
+}
 //: Define the `StringValidator` protocol below
 
 
