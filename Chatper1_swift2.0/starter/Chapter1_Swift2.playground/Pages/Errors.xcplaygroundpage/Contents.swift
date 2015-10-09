@@ -11,6 +11,7 @@ protocol JSONParsable {
 //: Create your own error type.
 enum ParseError: ErrorType {
   case MissingAttribute(message: String)
+  case MissingParams
 }
 
 /*:
