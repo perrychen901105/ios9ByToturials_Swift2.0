@@ -51,35 +51,102 @@ protocol StringValidationRule {
     var errorType: StringValidationError { get }
 }
 //: Define the `StringValidator` protocol below
-
+protocol StringValidator {
+    var validationRules: [StringValidationRule] { get }
+    func validate(string: String) -> (valid: Bool, errors: [StringValidationError])
+}
 
 
 //: Extend the `StringValidator` protocol to define a default implementation for `validate(string:)`
-
+extension StringValidator {
+    func validate(string: String) -> (valid: Bool, errors: [StringValidationError]) {
+        var errors = [StringValidationError]()
+        for rule in validationRules {
+            do {
+                try rule.validate(string)
+            } catch let error as StringValidationError {
+                errors.append(error)
+            } catch let error {
+                fatalError("Unexpected error type: \(error)")
+            }
+        }
+        return (valid: errors.isEmpty, errors: errors)
+    }
+}
 
 
 //: Time to implement your very first `StringValidationRule`, starting with one forthe first error type `.MustStartWith` and name it `StartsWithCharacterStringValidationRule`
-
+struct StartsWithCharacterStringValidationRule: StringValidationRule {
+    let characterSet: NSCharacterSet
+    let description: String
+    var errorType: StringValidationError {
+        return .MustStartWith(set: characterSet, description: description)
+    }
+    func validate(string: String) throws -> Bool {
+        if string.startsWithCharacterFromSet(characterSet) {
+            return true
+        } else {
+            throw errorType
+        }
+    }
+}
 
 
 //: Take this new rule for a spin!
+let letterSet = NSCharacterSet.letterCharacterSet()
+let startsWithRule = StartsWithCharacterStringValidationRule (characterSet: letterSet, description: "letter")
 
+do {
+    try startsWithRule.validate("foo")
+    try startsWithRule.validate("123")
+} catch let error {
+    print(error)
+}
 
 
 //: Now define another rule, `EndsWithCharacterStringValidationRule` so that you can create a `StringValidator` that uses both rules in conjunction.
-
+struct EndsWithCharacterStringValidationRule: StringValidationRule {
+    let characterSet: NSCharacterSet
+    let description: String
+    var errorType: StringValidationError {
+        return .MustEndWith(set: characterSet, description: description)
+    }
+    
+    func validate(string: String) throws -> Bool {
+        if string.endsWithCharacterFromSet(characterSet) {
+            return true
+        } else {
+            throw errorType
+        }
+    }
+}
 
 
 //: Create a `StringValidator` named `StartsAndEndsWithStringValidator` that uses both the StartsWith an EndsWith rules.
-
+struct StartsAndEndsWithStringValidator: StringValidator {
+    let startsWithSet: NSCharacterSet
+    let startsWithDescription: String
+    let endsWithSet: NSCharacterSet
+    let endsWithDescription: String
+    
+    var validationRules: [StringValidationRule] {
+        return [
+            StartsWithCharacterStringValidationRule(characterSet: startsWithSet, description: startsWithDescription),
+            EndsWithCharacterStringValidationRule(characterSet: endsWithSet, description: endsWithDescription)
+        ]
+    }
+}
 
 
 //: Create a new instance of the validator to be used.
-
+let numberSet = NSCharacterSet.decimalDigitCharacterSet()
+let startsAndEndsWithValidator = StartsAndEndsWithStringValidator(startsWithSet: letterSet, startsWithDescription: "letter", endsWithSet: numberSet, endsWithDescription: "number")
 
 
 //: Test that the validator works and view the resulting errors for invalid strings
-
+startsAndEndsWithValidator.validate("1foo").errors.description
+startsAndEndsWithValidator.validate("foo").errors.description
+startsAndEndsWithValidator.validate("foo1").valid
 
 
 //: Move on to [Password Validation](@next)
