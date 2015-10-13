@@ -57,16 +57,22 @@ struct ATM {
   
   func ejectCard() {
     // physically eject card
+    
   }
 }
 
 //: Test out the ATM to ensure that the defer block is being executed as expected.
 var atm = ATM()
+
 //: Attempt to dispense funds from Bill's account.
 var billsAccount = Account(name: "Bill's Account", balance: 500.00, locked: true)
 
-
-
+do {
+    try atm.dispenseFunds(200.0, account: &billsAccount)
+} catch let error {
+    print(error)
+}
+atm.log
 //: Below are a few more examples for you to review.
 var janesAccount = Account(name: "Jane's Account", balance:1500.00, locked: false)
 do {
@@ -93,13 +99,17 @@ atm.log
 let names = ["Charlie", "Chris", "Mic", "John", "Craig", "Felipe"]
 
 //: Implement a "for ... in" block that creates an array of names that start with "C"
+var namesThatStartWithC = [String]()
 
+for cName in names where cName.hasPrefix("C") {
+    namesThatStartWithC.append(cName)
+}
 
 
 
 //: Display the result
 
-
+print(namesThatStartWithC)
 
 
 //: Use the following array for the next example.
@@ -113,12 +123,21 @@ let authors = [
 let authorStatuses = authors.map { $0.status }
 
 //: Iterate over `authorStatuses` where the case is .Late(Int) and sum up the total number of days late
-
+var totalDaysLate = 0
+for case let .Late(daysLate) in authorStatuses {
+    totalDaysLate += daysLate
+}
 
 
 //: Use "if case" matching to slap all authors that are running late.
-
-
+var slapLog = ""
+for author in authors {
+    if case .Late(let daysLate) = author.status where daysLate > 2 {
+        slapLog += "Ray slaps \(author.name) around a bit " + "with a large trout.\n"
+    }
+    
+}
+print(slapLog)
 
 
 //: ### OptionSetType Example
@@ -133,5 +152,8 @@ struct RectangleBorderOptions: OptionSetType {
   static let Bottom = RectangleBorderOptions(rawValue: 2)
   static let Left = RectangleBorderOptions(rawValue: 3)
   static let All: RectangleBorderOptions = [Top, Right, Bottom, Left]
+    
 }
+
+
 
