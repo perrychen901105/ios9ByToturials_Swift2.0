@@ -17,6 +17,7 @@ enum StringValidationError: ErrorType, CustomStringConvertible {
   case MinLengthNotReached(Int)
   case MaxLengthExceeded(Int)
   
+    
   var description: String {
     let errorString: String
     switch self {

@@ -39,6 +39,8 @@ struct Person: JSONParsable {
   }
 }
 
+
+
 //: When calling a method that `throws` it is required by the compiler that you precede the call to that method with **`try`**. And then, in order to capture the thrown errors you will need to wrap your "trying" call in a `do {}` block followed by `catch {}` blocks for the type of errors you are catching.
 do {
   let person = try Person.parse(["foo": "bar"])
