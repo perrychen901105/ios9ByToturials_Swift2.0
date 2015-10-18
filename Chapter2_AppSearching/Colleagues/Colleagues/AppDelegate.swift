@@ -41,5 +41,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
+  func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    guard userActivity.activityType == Employee.domainIdentifier, let objectId = userActivity.userInfo?["id"] as? String else {
+      return false
+    }
+    if let navi = window?.rootViewController as? UINavigationController, listVC = navi.viewControllers.first as? EmployeeListViewController, employee = EmployeeService().employeeWithObjectId(objectId) {
+      navi.popToRootViewControllerAnimated(false)
+      let employeeViewController = listVC.storyboard?.instantiateViewControllerWithIdentifier("EmployeeView") as! EmployeeViewController
+      
+      employeeViewController.employee = employee
+      navi.pushViewController(employeeViewController, animated: true)
+      return true
+    }
+    
+    return true
+  }
+  
 }
 
