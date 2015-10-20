@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>SearchIndexExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>07B46B8A1B5AF7E400B55262</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A6354AC1BD648F40033DABD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

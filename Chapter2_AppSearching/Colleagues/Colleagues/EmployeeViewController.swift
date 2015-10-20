@@ -74,6 +74,7 @@ class EmployeeViewController: UIViewController {
     }
   }
   
+  // during the lifecycle of UIResponder, the system calls this method at various times and keeping the activity up to date.
   override func updateUserActivityState(activity: NSUserActivity) {
     activity.addUserInfoEntriesFromDictionary(employee.userActivityUserInfo)
   }

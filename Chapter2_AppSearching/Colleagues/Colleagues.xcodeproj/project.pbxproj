@@ -52,6 +52,8 @@
 		07B46BEC1B5B21EC00B55262 /* EmployeeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B46BEB1B5B21EC00B55262 /* EmployeeListCell.swift */; };
 		07B46BEE1B5B2ECD00B55262 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B46BED1B5B2ECD00B55262 /* EmployeeViewController.swift */; };
 		2A357CBB1BCFB354000EC41E /* EmployeeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A357CBA1BCFB354000EC41E /* EmployeeSearch.swift */; settings = {ASSET_TAGS = (); }; };
+		2A6354B01BD648F50033DABD /* IndexRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6354AF1BD648F50033DABD /* IndexRequestHandler.swift */; };
+		2A6354B41BD648F50033DABD /* SearchIndexExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A6354AD1BD648F40033DABD /* SearchIndexExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 07B46B8A1B5AF7E400B55262;
 			remoteInfo = EmployeeKit;
+		};
+		2A6354B21BD648F50033DABD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07689BFD1B562E170030E71C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A6354AC1BD648F40033DABD;
+			remoteInfo = SearchIndexExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -74,6 +83,17 @@
 				07B46BA11B5AF7E400B55262 /* EmployeeKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6354B81BD648F50033DABD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2A6354B41BD648F50033DABD /* SearchIndexExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -126,6 +146,9 @@
 		07B46BEB1B5B21EC00B55262 /* EmployeeListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeListCell.swift; sourceTree = "<group>"; };
 		07B46BED1B5B2ECD00B55262 /* EmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
 		2A357CBA1BCFB354000EC41E /* EmployeeSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeSearch.swift; sourceTree = "<group>"; };
+		2A6354AD1BD648F40033DABD /* SearchIndexExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SearchIndexExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6354AF1BD648F50033DABD /* IndexRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexRequestHandler.swift; sourceTree = "<group>"; };
+		2A6354B11BD648F50033DABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +167,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A6354AA1BD648F40033DABD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,6 +183,7 @@
 				078A11241B620368001C7FED /* Settings.bundle */,
 				07689C071B562E170030E71C /* Colleagues */,
 				07B46B8C1B5AF7E400B55262 /* EmployeeKit */,
+				2A6354AE1BD648F40033DABD /* SearchIndexExtension */,
 				07689C061B562E170030E71C /* Products */,
 			);
 			indentWidth = 2;
@@ -164,6 +195,7 @@
 			children = (
 				07689C051B562E170030E71C /* Colleagues.app */,
 				07B46B8B1B5AF7E400B55262 /* EmployeeKit.framework */,
+				2A6354AD1BD648F40033DABD /* SearchIndexExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +274,15 @@
 			path = pictures;
 			sourceTree = "<group>";
 		};
+		2A6354AE1BD648F40033DABD /* SearchIndexExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2A6354AF1BD648F50033DABD /* IndexRequestHandler.swift */,
+				2A6354B11BD648F50033DABD /* Info.plist */,
+			);
+			path = SearchIndexExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -264,11 +305,13 @@
 				07689C021B562E170030E71C /* Frameworks */,
 				07689C031B562E170030E71C /* Resources */,
 				07B46BA71B5AF7E400B55262 /* Embed Frameworks */,
+				2A6354B81BD648F50033DABD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				07B46B9F1B5AF7E400B55262 /* PBXTargetDependency */,
+				2A6354B31BD648F50033DABD /* PBXTargetDependency */,
 			);
 			name = Colleagues;
 			productName = Colleagues;
@@ -293,6 +336,23 @@
 			productReference = 07B46B8B1B5AF7E400B55262 /* EmployeeKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		2A6354AC1BD648F40033DABD /* SearchIndexExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6354B71BD648F50033DABD /* Build configuration list for PBXNativeTarget "SearchIndexExtension" */;
+			buildPhases = (
+				2A6354A91BD648F40033DABD /* Sources */,
+				2A6354AA1BD648F40033DABD /* Frameworks */,
+				2A6354AB1BD648F40033DABD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SearchIndexExtension;
+			productName = SearchIndexExtension;
+			productReference = 2A6354AD1BD648F40033DABD /* SearchIndexExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -308,6 +368,9 @@
 					};
 					07B46B8A1B5AF7E400B55262 = {
 						CreatedOnToolsVersion = 7.0;
+					};
+					2A6354AC1BD648F40033DABD = {
+						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
 			};
@@ -326,6 +389,7 @@
 			targets = (
 				07689C041B562E170030E71C /* Colleagues */,
 				07B46B8A1B5AF7E400B55262 /* EmployeeKit */,
+				2A6354AC1BD648F40033DABD /* SearchIndexExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -376,6 +440,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A6354AB1BD648F40033DABD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -404,6 +475,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A6354A91BD648F40033DABD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6354B01BD648F50033DABD /* IndexRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -411,6 +490,11 @@
 			isa = PBXTargetDependency;
 			target = 07B46B8A1B5AF7E400B55262 /* EmployeeKit */;
 			targetProxy = 07B46B9E1B5AF7E400B55262 /* PBXContainerItemProxy */;
+		};
+		2A6354B31BD648F50033DABD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A6354AC1BD648F40033DABD /* SearchIndexExtension */;
+			targetProxy = 2A6354B21BD648F50033DABD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -582,6 +666,28 @@
 			};
 			name = Release;
 		};
+		2A6354B51BD648F50033DABD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SearchIndexExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Colleagues.SearchIndexExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2A6354B61BD648F50033DABD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SearchIndexExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Colleagues.SearchIndexExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -611,6 +717,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2A6354B71BD648F50033DABD /* Build configuration list for PBXNativeTarget "SearchIndexExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A6354B51BD648F50033DABD /* Debug */,
+				2A6354B61BD648F50033DABD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

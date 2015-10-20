@@ -38,6 +38,13 @@ extension Employee {
     attributeSet.phoneNumbers = [phone]
     attributeSet.emailAddresses = [email]
     attributeSet.keywords = skills
+    // creates a relationship between the NSUserActivity and what will soon be the Core Spotlight indexed object.
+    attributeSet.relatedUniqueIdentifier = objectId
     return attributeSet
+  }
+  
+  public var searchableItem: CSSearchableItem {
+    let item = CSSearchableItem(uniqueIdentifier: objectId, domainIdentifier: Employee.domainIdentifier, attributeSet: attributeSet)
+    return item
   }
 }
