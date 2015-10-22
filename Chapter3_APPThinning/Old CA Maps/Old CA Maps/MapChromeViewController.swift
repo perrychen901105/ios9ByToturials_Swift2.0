@@ -29,7 +29,7 @@ class MapChromeViewController: UIViewController, MKMapViewDelegate {
   @IBOutlet weak var mapView: MKMapView!
   
   var mapOverlayData: HistoricMapOverlayData?
-  
+  var overlayBundleResource: NSBundleResourceRequest?
 //=============================================================================/
 // Mark: Lifetime
 //=============================================================================/
@@ -48,6 +48,11 @@ class MapChromeViewController: UIViewController, MKMapViewDelegate {
     let barButton = splitViewController!.displayModeButtonItem()
     navigationItem.leftBarButtonItem = barButton
     navigationItem.leftItemsSupplementBackButton = true
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    overlayBundleResource?.endAccessingResources()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -108,10 +113,37 @@ class MapChromeViewController: UIViewController, MKMapViewDelegate {
 //=============================================================================/
   
   private func downloadAndDisplayMapOverlay() {
-    displayOverlayFromBundle(NSBundle.mainBundle())
+    // 1 grabbing the bundleTitle associated with your mapOverlayData, which was already set with an appropriate title in the included HistoricMapOverlayData.swift.
+    guard let bundleTitle = mapOverlayData?.bundleTitle else {
+      return
+    }
+    
+    // 2 init the NSBundleResourceRequest with the bundleTitle tag associated with your bundle
+    let bundleResource = NSBundleResourceRequest(tags: [bundleTitle])
+    overlayBundleResource = bundleResource
+    // This tells the system that the user is "patiently" waiting for this downloadand the system should be diverting all resources to complete it ASAP.
+    bundleResource.loadingPriority = NSBundleResourceRequestLoadingPriorityUrgent
+    
+    loadingProgressView.observedProgress = bundleResource.progress
+    loadingProgressView.hidden = false
+    
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    
+    // 3 calls the completion block when app finishes downloading on-demand content or upon error
+    bundleResource.beginAccessingResourcesWithCompletionHandler { [weak self] (error) -> Void in
+      // is not called on the main thread, so need to supply a block running on the main queue
+      NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+        if error == nil {
+          self?.loadingProgressView.hidden = true
+          self?.displayOverlayFromBundle(bundleResource.bundle)
+        }
+      })
+    }
   }
   
   func displayOverlayFromBundle(bundle: NSBundle) {
+
+     
     guard let mapOverlayData = mapOverlayData else {
       return
     }

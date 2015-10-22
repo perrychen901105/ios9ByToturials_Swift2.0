@@ -16,17 +16,14 @@
 		A645B2BC1B52F8B6004103C7 /* HistoricTileMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645B2B81B52F8B6004103C7 /* HistoricTileMapOverlay.swift */; };
 		A645B2BD1B52F8B6004103C7 /* HistoricMapOverlayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645B2B91B52F8B6004103C7 /* HistoricMapOverlayData.swift */; };
 		A645B2BE1B52F8B6004103C7 /* ImageTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645B2BA1B52F8B6004103C7 /* ImageTile.swift */; };
-		A645B2C51B52F8EC004103C7 /* LA_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C01B52F8EC004103C7 /* LA_Map.bundle */; settings = {ASSET_TAGS = (); }; };
-		A645B2C61B52F8EC004103C7 /* SC_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C11B52F8EC004103C7 /* SC_Map.bundle */; settings = {ASSET_TAGS = (); }; };
-		A645B2C71B52F8EC004103C7 /* SD_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C21B52F8EC004103C7 /* SD_Map.bundle */; settings = {ASSET_TAGS = (); }; };
-		A645B2C81B52F8EC004103C7 /* SF_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C31B52F8EC004103C7 /* SF_Map.bundle */; settings = {ASSET_TAGS = (); }; };
-		A645B2C91B52F8EC004103C7 /* SNVL_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C41B52F8EC004103C7 /* SNVL_Map.bundle */; settings = {ASSET_TAGS = (); }; };
+		A645B2C51B52F8EC004103C7 /* LA_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C01B52F8EC004103C7 /* LA_Map.bundle */; settings = {ASSET_TAGS = (LA_Map, ); }; };
+		A645B2C61B52F8EC004103C7 /* SC_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C11B52F8EC004103C7 /* SC_Map.bundle */; settings = {ASSET_TAGS = (SC_Map, ); }; };
+		A645B2C71B52F8EC004103C7 /* SD_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C21B52F8EC004103C7 /* SD_Map.bundle */; settings = {ASSET_TAGS = (SD_Map, ); }; };
+		A645B2C81B52F8EC004103C7 /* SF_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C31B52F8EC004103C7 /* SF_Map.bundle */; settings = {ASSET_TAGS = (SF_Map, ); }; };
+		A645B2C91B52F8EC004103C7 /* SNVL_Map.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A645B2C41B52F8EC004103C7 /* SNVL_Map.bundle */; settings = {ASSET_TAGS = (SNVL_Map, ); }; };
 		A645B2CB1B52F904004103C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A645B2CA1B52F904004103C7 /* Assets.xcassets */; };
 		A645B2CD1B52F918004103C7 /* NSBundle+ContentExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645B2CC1B52F918004103C7 /* NSBundle+ContentExtractor.swift */; };
 		A645B2CF1B52F959004103C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A645B2CE1B52F959004103C7 /* Main.storyboard */; };
-		A6FA5B871B69D1DB00F192D9 /* Santa Cruz.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FA5B841B69D1DB00F192D9 /* Santa Cruz.png */; };
-		A6FA5B881B69D1DB00F192D9 /* Santa Cruz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FA5B851B69D1DB00F192D9 /* Santa Cruz@2x.png */; };
-		A6FA5B891B69D1DB00F192D9 /* Santa Cruz@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FA5B861B69D1DB00F192D9 /* Santa Cruz@3x.png */; };
 		A6FA5B8B1B69E7F500F192D9 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FA5B8A1B69E7F500F192D9 /* UIColor+Utils.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,9 +47,6 @@
 		A645B2CA1B52F904004103C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A645B2CC1B52F918004103C7 /* NSBundle+ContentExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+ContentExtractor.swift"; sourceTree = "<group>"; };
 		A645B2CE1B52F959004103C7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Old CA Maps/Main.storyboard"; sourceTree = "<group>"; };
-		A6FA5B841B69D1DB00F192D9 /* Santa Cruz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa Cruz.png"; sourceTree = "<group>"; };
-		A6FA5B851B69D1DB00F192D9 /* Santa Cruz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa Cruz@2x.png"; sourceTree = "<group>"; };
-		A6FA5B861B69D1DB00F192D9 /* Santa Cruz@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Santa Cruz@3x.png"; sourceTree = "<group>"; };
 		A6FA5B8A1B69E7F500F192D9 /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,9 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				A645B2AD1B52F87D004103C7 /* AppDelegate.swift */,
-				A6FA5B841B69D1DB00F192D9 /* Santa Cruz.png */,
-				A6FA5B851B69D1DB00F192D9 /* Santa Cruz@2x.png */,
-				A6FA5B861B69D1DB00F192D9 /* Santa Cruz@3x.png */,
 				A645B2AF1B52F883004103C7 /* View Controllers */,
 				A645B2BF1B52F8D7004103C7 /* Map Bundles */,
 				A645B2B61B52F8A0004103C7 /* Map Overlays & Data */,
@@ -222,8 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A645B2A61B52F86A004103C7 /* LaunchScreen.storyboard in Resources */,
-				A6FA5B871B69D1DB00F192D9 /* Santa Cruz.png in Resources */,
-				A6FA5B891B69D1DB00F192D9 /* Santa Cruz@3x.png in Resources */,
 				A645B2C71B52F8EC004103C7 /* SD_Map.bundle in Resources */,
 				A645B2C61B52F8EC004103C7 /* SC_Map.bundle in Resources */,
 				A645B2CF1B52F959004103C7 /* Main.storyboard in Resources */,
@@ -231,7 +220,6 @@
 				A645B2C51B52F8EC004103C7 /* LA_Map.bundle in Resources */,
 				A645B2CB1B52F904004103C7 /* Assets.xcassets in Resources */,
 				A645B2C91B52F8EC004103C7 /* SNVL_Map.bundle in Resources */,
-				A6FA5B881B69D1DB00F192D9 /* Santa Cruz@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +363,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Old CA Maps/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = SD_Map;
+				ON_DEMAND_RESOURCES_PREFETCH_ORDER = SF_Map;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.Old-CA-Maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -386,6 +376,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Old CA Maps/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = SD_Map;
+				ON_DEMAND_RESOURCES_PREFETCH_ORDER = SF_Map;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.Old-CA-Maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
