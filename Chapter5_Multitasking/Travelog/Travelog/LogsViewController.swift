@@ -97,6 +97,7 @@ class LogsViewController: UITableViewController, DetailViewControllerPresenter {
       let presenter = controller.popoverPresentationController
       presenter?.sourceView = view
       presenter?.barButtonItem = photoLibraryButton
+      presenter?.delegate = self
     }
     presentViewController(controller, animated: true, completion: nil)
   }
@@ -112,4 +113,19 @@ class LogsViewController: UITableViewController, DetailViewControllerPresenter {
     presentTextViewController(textLog.text)
   }
   
+}
+
+extension LogsViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // 1
+        guard traitCollection.userInterfaceIdiom == .Pad else {
+            return .FullScreen
+        }
+        
+        if splitViewController?.view.bounds.width > 320 {
+            return .None
+        } else {
+            return .FullScreen
+        }
+    }
 }

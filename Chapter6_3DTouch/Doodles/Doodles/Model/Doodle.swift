@@ -22,30 +22,28 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController {
+struct Doodle {
+  let name: String
+  let date: NSDate
+  let image: UIImage?
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMaximumPrimaryColumnWidthBasedOnSize(view.bounds.size)
-    }
-
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  static var allDoodles = [
+    Doodle(name: "Doggy", date: NSDate(), image: UIImage(named: "doodle1")),
+    Doodle(name: "Razeware", date: NSDate(), image: UIImage(named: "doodle2")),
+    Doodle(name: "House", date: NSDate(), image: UIImage(named: "doodle3"))
+  ]
+  
+  static var sortedDoodles: [Doodle] {
+    return allDoodles.sort { $0.date.timeIntervalSinceNow > $1.date.timeIntervalSinceNow }
   }
   
-  // MARK: Helper
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateMaximumPrimaryColumnWidthBasedOnSize(size)
-    }
-    
-    func updateMaximumPrimaryColumnWidthBasedOnSize(size: CGSize) {
-        if size.width < UIScreen.mainScreen().bounds.width || size.width < size.height {
-            maximumPrimaryColumnWidth = 170.0
-        } else {
-            maximumPrimaryColumnWidth = UISplitViewControllerAutomaticDimension
-        }
-    }
+  static func addDoodle(doodle: Doodle) {
+    allDoodles.append(doodle)
+  }
   
+  static func deleteDoodle(doodle: Doodle) {
+    if let index = allDoodles.indexOf({ $0.name == doodle.name }) {
+      allDoodles.removeAtIndex(index)
+    }
+  }
 }

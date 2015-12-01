@@ -22,30 +22,24 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController {
+class DoodleCell: UITableViewCell {
+  @IBOutlet weak var doodleNameLabel: UILabel!
+  @IBOutlet weak var doodleDateLabel: UILabel!
+  @IBOutlet weak var doodlePreviewImageView: UIImageView!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMaximumPrimaryColumnWidthBasedOnSize(view.bounds.size)
+  private static var dateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "dd MMM yyyy, HH:mm"
+    return formatter
+  }()
+  
+  var doodle: Doodle? {
+    didSet {
+      if let doodle = doodle {
+        doodleNameLabel.text = doodle.name
+        doodleDateLabel.text = self.dynamicType.dateFormatter.stringFromDate(doodle.date)
+        doodlePreviewImageView.image = doodle.image
+      }
     }
-
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
   }
-  
-  // MARK: Helper
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateMaximumPrimaryColumnWidthBasedOnSize(size)
-    }
-    
-    func updateMaximumPrimaryColumnWidthBasedOnSize(size: CGSize) {
-        if size.width < UIScreen.mainScreen().bounds.width || size.width < size.height {
-            maximumPrimaryColumnWidth = 170.0
-        } else {
-            maximumPrimaryColumnWidth = UISplitViewControllerAutomaticDimension
-        }
-    }
-  
 }

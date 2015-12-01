@@ -22,30 +22,33 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController {
+class NewDoodleViewController: UIViewController {
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMaximumPrimaryColumnWidthBasedOnSize(view.bounds.size)
-    }
-
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  private var canvas: Canvas {
+    return view as! Canvas
   }
   
-  // MARK: Helper
+  @IBAction func saveTapped() {
+    let alert = UIAlertController(title: "Name it!",
+      message: "What would you like to name your masterpiece?",
+      preferredStyle: .Alert)
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateMaximumPrimaryColumnWidthBasedOnSize(size)
+    alert.addTextFieldWithConfigurationHandler { textField in
+      textField.autocapitalizationType = .Words
     }
     
-    func updateMaximumPrimaryColumnWidthBasedOnSize(size: CGSize) {
-        if size.width < UIScreen.mainScreen().bounds.width || size.width < size.height {
-            maximumPrimaryColumnWidth = 170.0
-        } else {
-            maximumPrimaryColumnWidth = UISplitViewControllerAutomaticDimension
-        }
-    }
+    alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "Save", style: .Default, handler: { action in
+      let name = alert.textFields!.first!.text!
+      let doodleImage = self.canvas.image
+      let doodle = Doodle(name: name, date: NSDate(), image: doodleImage)
+      
+      Doodle.addDoodle(doodle)
+      
+      self.dismissViewControllerAnimated(true, completion: nil)
+    }))
+    
+    presentViewController(alert, animated: true, completion: nil)
+  }
   
 }

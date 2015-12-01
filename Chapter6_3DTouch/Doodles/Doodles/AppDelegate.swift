@@ -22,30 +22,15 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController {
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMaximumPrimaryColumnWidthBasedOnSize(view.bounds.size)
-    }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  var window: UIWindow?
+  
+  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    configureAppAppearance()
+    
+    return true
   }
-  
-  // MARK: Helper
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateMaximumPrimaryColumnWidthBasedOnSize(size)
-    }
-    
-    func updateMaximumPrimaryColumnWidthBasedOnSize(size: CGSize) {
-        if size.width < UIScreen.mainScreen().bounds.width || size.width < size.height {
-            maximumPrimaryColumnWidth = 170.0
-        } else {
-            maximumPrimaryColumnWidth = UISplitViewControllerAutomaticDimension
-        }
-    }
-  
+
 }

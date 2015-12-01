@@ -22,30 +22,29 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController {
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMaximumPrimaryColumnWidthBasedOnSize(view.bounds.size)
-    }
+extension AppDelegate {
+  func configureAppAppearance()  {
+    UIApplication.sharedApplication().delegate?.window??.tintColor = UIColor.hotPinkColor()
+    
+    UINavigationBar.appearance().translucent = false
+    UINavigationBar.appearance().barTintColor = UIColor.hotPinkColor()
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.whiteColor() ]
+  }
+}
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+extension UIStoryboard {
+  class var mainStoryboard: UIStoryboard {
+    return UIStoryboard(name: "Main", bundle: nil)
+  }
+}
+
+extension UINavigationController {
+  public override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
-  
-  // MARK: Helper
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        updateMaximumPrimaryColumnWidthBasedOnSize(size)
-    }
-    
-    func updateMaximumPrimaryColumnWidthBasedOnSize(size: CGSize) {
-        if size.width < UIScreen.mainScreen().bounds.width || size.width < size.height {
-            maximumPrimaryColumnWidth = 170.0
-        } else {
-            maximumPrimaryColumnWidth = UISplitViewControllerAutomaticDimension
-        }
-    }
-  
+}
+
+extension UIColor {
+  class func hotPinkColor() -> UIColor { return UIColor(red:0.98, green:0.066, blue:0.309, alpha:1) }
 }
