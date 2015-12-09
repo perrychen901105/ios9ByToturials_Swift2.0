@@ -36,6 +36,7 @@ class SpotInfoViewController: UIViewController {
   @IBOutlet weak var userRatingLabel: UILabel!
   @IBOutlet weak var weatherHideOrShowButton: UIButton!
   @IBOutlet weak var submitRatingButton: UIButton!
+    @IBOutlet weak var ratingStackView: UIStackView!
 
   var shouldHideWeatherInfoSetting: Bool {
     get {
@@ -90,7 +91,23 @@ class SpotInfoViewController: UIViewController {
     weatherHideOrShowButton.setTitle(newButtonTitle, forState: .Normal)
 
     // TODO: Animate when animated == true
-    weatherInfoLabel.hidden = shouldHideWeatherInfo
+    if animated {
+        UIView.animateWithDuration(0.3,
+            delay: 0.0,
+            usingSpringWithDamping: 0.6,
+            initialSpringVelocity: 10,
+            options: [],
+            animations: { () -> Void in
+                self.weatherInfoLabel.hidden = shouldHideWeatherInfo
+            }, completion: { finished in
+                UIView.animateWithDuration(0.3){
+                    self.ratingStackView.axis = shouldHideWeatherInfo ? .Vertical : .Horizontal
+                }
+            })
+    } else {
+        weatherInfoLabel.hidden = shouldHideWeatherInfo
+        ratingStackView.axis = shouldHideWeatherInfo ? .Vertical : .Horizontal
+    }
   }
 
   @IBAction func wikipediaButtonTapped(sender: UIButton) {
