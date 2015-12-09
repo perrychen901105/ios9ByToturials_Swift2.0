@@ -39,6 +39,8 @@ class ChecklistDetailViewController: UITableViewController {
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 64.0
+    
+    navigationItem.rightBarButtonItems![1] = editButtonItem()
   }
   
   // MARK: - Unwind segue methods
@@ -119,4 +121,12 @@ extension ChecklistDetailViewController {
     
     return cell
   }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            removeNotesView()
+            checklist.items.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
 }

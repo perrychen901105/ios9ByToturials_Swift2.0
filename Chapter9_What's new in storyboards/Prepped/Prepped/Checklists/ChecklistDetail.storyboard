@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Checklist Detail View Controller-->
@@ -84,12 +85,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklist" id="FoA-jx-unA">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="zdT-Tc-muA"/>
-                        <barButtonItem key="rightBarButtonItem" image="AddButtonIcon" id="zIy-1R-fPQ">
-                            <connections>
-                                <segue destination="2No-Qd-Mcd" kind="presentation" id="9uH-ll-FxG"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="AddButtonIcon" id="zIy-1R-fPQ">
+                                <connections>
+                                    <segue destination="2No-Qd-Mcd" kind="presentation" id="9uH-ll-FxG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" id="zdT-Tc-muA"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -222,7 +225,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Item" id="vze-X9-0aJ">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2Om-b8-X7P"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2Om-b8-X7P">
+                            <connections>
+                                <segue destination="o8a-s5-GjN" kind="unwind" unwindAction="cancelToChecklistDetailViewController:" id="6lJ-Eg-j4K"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="0e2-ey-qyr"/>
                     </navigationItem>
                     <connections>
@@ -231,6 +238,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TS-nN-IxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="o8a-s5-GjN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3343" y="-168"/>
         </scene>
