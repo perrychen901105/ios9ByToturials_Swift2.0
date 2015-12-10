@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AB089311C19268D009DF2F7 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB089301C19268D009DF2F7 /* ScaleSegue.swift */; };
+		2AB089331C1948B4009DF2F7 /* SwipeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB089321C1948B4009DF2F7 /* SwipeSegue.swift */; };
 		8251A9A91B64B3A900FE2BEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8251A99B1B64B3A900FE2BEF /* AppDelegate.swift */; };
 		8251A9AA1B64B3A900FE2BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8251A99C1B64B3A900FE2BEF /* Assets.xcassets */; };
 		8251A9AB1B64B3A900FE2BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8251A99D1B64B3A900FE2BEF /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2AB089301C19268D009DF2F7 /* ScaleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
+		2AB089321C1948B4009DF2F7 /* SwipeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeSegue.swift; sourceTree = "<group>"; };
 		8251A99B1B64B3A900FE2BEF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8251A99C1B64B3A900FE2BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = PamperedPets/Assets.xcassets; sourceTree = "<group>"; };
 		8251A99E1B64B3A900FE2BEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				82F177911B6AEC7400710915 /* FadeSegue.swift */,
 				825FD7F81B65D496000AA792 /* DropSegue.swift */,
 				2AB089301C19268D009DF2F7 /* ScaleSegue.swift */,
+				2AB089321C1948B4009DF2F7 /* SwipeSegue.swift */,
 			);
 			name = "Custom Segues";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				8251A9B11B64B3A900FE2BEF /* AnimalsViewController.swift in Sources */,
 				8251A9A91B64B3A900FE2BEF /* AppDelegate.swift in Sources */,
 				8251A9B01B64B3A900FE2BEF /* AnimalPhotoViewController.swift in Sources */,
+				2AB089331C1948B4009DF2F7 /* SwipeSegue.swift in Sources */,
 				8251A9B21B64B3A900FE2BEF /* RoundedImageView.swift in Sources */,
 				825FD7F91B65D496000AA792 /* DropSegue.swift in Sources */,
 				8251A9AF1B64B3A900FE2BEF /* AnimalDetailViewController.swift in Sources */,

@@ -320,7 +320,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZg-hq-Swc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="dW8-fH-lug">
                     <connections>
-                        <segue destination="eFo-bT-a6O" kind="presentation" identifier="PhotoDetail" customClass="ScaleSegue" customModule="PamperedPets" customModuleProvider="target" modalPresentationStyle="formSheet" id="Qcp-nY-Pjc"/>
+                        <segue destination="eFo-bT-a6O" kind="presentation" identifier="PhotoDetail" customClass="SwipeSegue" customModule="PamperedPets" customModuleProvider="target" modalPresentationStyle="formSheet" id="Qcp-nY-Pjc"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -364,6 +364,8 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="9F7-0z-E0r" appends="YES" id="TLi-s0-ho5"/>
+                                    <outletCollection property="gestureRecognizers" destination="V90-e0-URe" appends="YES" id="wzR-yR-FqB"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZWL-Ob-HrE" appends="YES" id="enk-wO-1e7"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -395,6 +397,8 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="B10-c3-qIb" id="3Wd-Bk-zHn"/>
+                        <outlet property="swipeDownGesture" destination="ZWL-Ob-HrE" id="NJE-xM-Hdg"/>
+                        <outlet property="swipeUpGesture" destination="V90-e0-URe" id="ZUh-Rl-uGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knf-9u-GJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,6 +408,16 @@
                         <segue destination="bxp-lf-Zfe" kind="unwind" unwindAction="unwindToAnimalDetailViewController:" id="LUZ-A2-SD5"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="V90-e0-URe">
+                    <connections>
+                        <segue destination="bxp-lf-Zfe" kind="unwind" unwindAction="unwindToAnimalDetailViewController:" id="UHN-Jd-3xJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="ZWL-Ob-HrE">
+                    <connections>
+                        <segue destination="bxp-lf-Zfe" kind="unwind" unwindAction="unwindToAnimalDetailViewController:" id="LAp-n4-b4o"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2408" y="1080"/>
         </scene>
